@@ -1,3 +1,5 @@
+var express = require('express');
+
 var http = require('http');
 var urlm = require('url');
 
@@ -21,12 +23,10 @@ var app = http.createServer( function(request, response) {
     }
     // 1. 프론트에서 사진 받기 --> flask에 사진 보내기      (POST)
     
-    // 2. flask에서 재료명 받기 --> 프론트에 재료명 보내기 / DB에 재료명 넣기
+    // 2. flask에서 재료명 받기 --> 프론트에 재료명 보내기 / DB에 재료명 넣기       -- db.query(`INSERT INTO refrigerator VALUE (5, 'ingre5')`);
     
     // 3. 보유 재료로 만들 수 있는 요리 찾기
     // 3-1. 냉장고db에서 보유 재료들 가져오기
-
-
     db.query(`SELECT ingredient FROM refrigerator`, function(error, ingredients) {
         console.log(ingredients);   // 냉장고 db 안에 있는 재료들 출력
 
